@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bucketed Balance Planner</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Bucketed Balance Planner</h1>
+
+    <section class="card">
+      <h2>Account Input</h2>
+      <label>Current balance: <input id="currentBalance" type="number" step="0.01" value="1000"></label>
+      <label>Main periodic increase amount: <input id="mainIncrease" type="number" step="0.01" value="200"></label>
+      <label>Increase dates (twice-monthly): <input id="date1" type="number" min="1" max="28" value="1"> and <input id="date2" type="number" min="1" max="28" value="15"></label>
+      <label>Simulate months ahead: <input id="months" type="number" min="0" value="0"></label>
+      <div class="actions">
+        <button id="applyBtn">Apply / Simulate</button>
+        <button id="saveBtn">Save</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Buckets</h2>
+      <div id="buckets"></div>
+      <button id="addBucket">Add bucket</button>
+    </section>
+
+    <section class="card">
+      <h2>Summary</h2>
+      <div id="summary"></div>
+    </section>
+
+    <p class="note">Tip: Add buckets with a name, allocation % (for initial split), fixed bucket increase (applied on the same dates as main increase), and a goal amount. Charts show progress vs goal.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

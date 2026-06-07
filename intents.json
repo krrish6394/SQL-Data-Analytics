@@ -1,0 +1,44 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["^hi$", "^hello$", "\bhey\b", "\bhi there\b", "hola"],
+      "responses": ["Hello!", "Hi there!", "Hey — how can I help?"]
+    },
+    {
+      "tag": "how_are_you",
+      "patterns": ["how are you", "how's it going", "how are you?"],
+      "responses": ["I'm a program, so I don't have feelings, but I'm here to help!", "Doing well — ready to assist you."]
+    },
+    {
+      "tag": "time",
+      "patterns": ["what time", "current time", "tell me the time", "time\b"],
+      "responses": ["The current time is {time}."]
+    },
+    {
+      "tag": "name",
+      "patterns": ["what is your name", "who are you", "your name"],
+      "responses": ["I'm your Personal Assistant."]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thank you", "thanks", "thx"],
+      "responses": ["You're welcome!", "No problem — happy to help!"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "goodbye", "see you"],
+      "responses": ["Goodbye!", "See you later."]
+    },
+    {
+      "tag": "good_morning",
+      "patterns": ["good morning"],
+      "responses": ["Good morning! Hope you have a great day."]
+    },
+    {
+      "tag": "good_night",
+      "patterns": ["good night"],
+      "responses": ["Good night! Sleep well."]
+    }
+  ]
+}
