@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Aggregator - NLP Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.2);
+            padding: 40px;
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #667eea;
+            border-color: #667eea;
+        }
+        .btn-primary:hover {
+            background-color: #764ba2;
+            border-color: #764ba2;
+        }
+        .article-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            transition: box-shadow 0.3s ease;
+        }
+        .article-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .article-title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .article-source {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-date {
+            color: #999;
+            font-size: 0.85em;
+        }
+        .summary-section {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .keywords-section {
+            background-color: #e8f4f8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            display: inline-block;
+            background-color: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            margin: 2px;
+            font-size: 0.85em;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: #764ba2;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .spinner {
+            color: #667eea;
+        }
+        .stats-section {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .stats-item {
+            text-align: center;
+            padding: 15px;
+        }
+        .stats-number {
+            font-size: 2em;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .stats-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .timestamp {
+            color: #999;
+            font-size: 0.8em;
+            text-align: right;
+            margin-top: 20px;
+        }
+        .form-control {
+            border-color: #ddd;
+        }
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📰 News Aggregator with NLP</h1>
+        <p class="text-center text-muted">Intelligent news collection, processing, and summarization</p>
+        
+        <!-- Main Form Section -->
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form id="mainForm">
+                    <div class="form-group">
+                        <label for="category"><strong>Select News Category:</strong></label>
+                        <select class="form-control" id="category" name="category" required>
+                            <option value="">-- Choose a category --</option>
+                            <option value="general">General News</option>
+                            <option value="technology">Technology</option>
+                            <option value="sports">Sports</option>
+                            <option value="entertainment">Entertainment</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="summaryLength"><strong>Summary Length (sentences):</strong></label>
+                        <input type="number" class="form-control" id="summaryLength" name="summaryLength" value="2" min="1" max="5">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="keywordCount"><strong>Number of Keywords to Extract:</strong></label>
+                        <input type="number" class="form-control" id="keywordCount" name="keywordCount" value="5" min="1" max="10">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block"><strong>Analyze News</strong></button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Loading Spinner -->
+        <div class="loading" id="loadingSpinner">
+            <div class="spinner-border spinner" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <p class="mt-2">Processing articles...</p>
+        </div>
+        
+        <!-- Statistics Section -->
+        <div id="statsSection" style="display:none;">
+            <div class="stats-section">
+                <h4>📊 Analysis Statistics</h4>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="stats-item">
+                            <div class="stats-number" id="totalArticles">0</div>
+                            <div class="stats-label">Total Articles</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-item">
+                            <div class="stats-number" id="totalSources">0</div>
+                            <div class="stats-label">News Sources</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-item">
+                            <div class="stats-number" id="avgLength">0</div>
+                            <div class="stats-label">Avg. Content Length</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-item">
+                            <div class="stats-number" id="processingTime">0s</div>
+                            <div class="stats-label">Processing Time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Articles Display Section -->
+        <div id="articlesContainer" style="margin-top: 30px;">
+            <!-- Articles will be inserted here -->
+        </div>
+        
+        <!-- Timestamp -->
+        <div class="timestamp">
+            <small>Last updated: <span id="lastUpdated">Never</span></small>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        // API Base URL
+        const API_BASE = '/api';
+        
+        // Form submission
+        document.getElementById('mainForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const category = document.getElementById('category').value;
+            const summaryLength = parseInt(document.getElementById('summaryLength').value);
+            const keywordCount = parseInt(document.getElementById('keywordCount').value);
+            
+            if (!category) {
+                alert('Please select a category');
+                return;
+            }
+            
+            // Show loading spinner
+            document.getElementById('loadingSpinner').style.display = 'block';
+            document.getElementById('articlesContainer').innerHTML = '';
+            document.getElementById('statsSection').style.display = 'none';
+            
+            const startTime = Date.now();
+            
+            try {
+                // Make API request for complete analysis
+                const response = await fetch(`${API_BASE}/analyze_articles`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        category: category
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                const data = await response.json();
+                const endTime = Date.now();
+                const processingTime = ((endTime - startTime) / 1000).toFixed(2);
+                
+                // Hide loading spinner
+                document.getElementById('loadingSpinner').style.display = 'none';
+                
+                if (data.status === 'success') {
+                    // Display statistics
+                    displayStatistics(data.statistics, processingTime);
+                    
+                    // Display articles
+                    displayArticles(data.articles, summaryLength, keywordCount);
+                    
+                    // Update timestamp
+                    updateTimestamp();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('loadingSpinner').style.display = 'none';
+                alert('An error occurred. Please try again.');
+            }
+        });
+        
+        // Display statistics
+        function displayStatistics(stats, processingTime) {
+            document.getElementById('totalArticles').textContent = stats.total_articles;
+            document.getElementById('totalSources').textContent = stats.num_sources;
+            document.getElementById('avgLength').textContent = Math.round(stats.avg_content_length);
+            document.getElementById('processingTime').textContent = processingTime + 's';
+            document.getElementById('statsSection').style.display = 'block';
+        }
+        
+        // Display articles
+        function displayArticles(articles, summaryLength, keywordCount) {
+            let html = '<h3>📑 Analyzed Articles</h3>';
+            
+            articles.forEach((article, index) => {
+                html += `
+                    <div class="article-card">
+                        <div class="article-title">${article.title}</div>
+                        <div class="article-source">
+                            Source: <strong>${article.source}</strong>
+                        </div>
+                        <div class="article-date">
+                            Published: ${new Date(article.publishedAt).toLocaleDateString()}
+                        </div>
+                        
+                        <div class="summary-section">
+                            <strong>📝 Summary:</strong>
+                            <p class="mt-2">${article.summary}</p>
+                        </div>
+                        
+                        <div class="keywords-section">
+                            <strong>🏷️ Keywords:</strong>
+                            <div class="mt-2">
+                                ${article.keywords.map(k => `<span class="keyword-tag">${k}</span>`).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <strong>Category:</strong>
+                            <span class="category-badge">${article.category}</span>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <small class="text-muted">
+                                Compression: ${article.summary_stats.compression_ratio * 100}% | 
+                                Words: ${article.summary_stats.original_word_count} → ${article.summary_stats.summary_word_count}
+                            </small>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <a href="${article.url}" target="_blank" class="btn btn-sm btn-outline-primary">
+                                Read Full Article →
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('articlesContainer').innerHTML = html;
+        }
+        
+        // Update timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            const timeString = now.toLocaleString();
+            document.getElementById('lastUpdated').textContent = timeString;
+        }
+        
+        // Health check on page load
+        window.addEventListener('load', async function() {
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                if (!response.ok) {
+                    console.warn('Health check failed');
+                }
+            } catch (error) {
+                console.warn('API health check error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
