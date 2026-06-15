@@ -33,6 +33,14 @@ class NewsFetcher:
             {"name": "ESPN", "category": "sports"},
             {"name": "Variety", "category": "entertainment"},
         ]
+
+        # Fallback URLs for sources that use mock or placeholder links
+        self.source_homepages = {
+            "BBC News": "https://www.bbc.com/news",
+            "TechCrunch": "https://techcrunch.com",
+            "ESPN": "https://www.espn.com",
+            "Variety": "https://variety.com",
+        }
         
         # Mock articles database
         self.mock_articles = {
@@ -42,18 +50,18 @@ class NewsFetcher:
                     "title": "Global Climate Summit Reaches Historic Agreement",
                     "description": "World leaders have reached a groundbreaking agreement on climate change at the annual summit.",
                     "content": "World leaders from over 190 countries have reached a groundbreaking agreement on climate change at the annual summit. The agreement sets ambitious targets for reducing greenhouse gas emissions by 50% before 2050. Scientists hail the accord as a significant step in combating global warming and protecting the environment for future generations. The agreement includes provisions for developing nations to receive financial support for green initiatives.",
-                    "url": "https://bbc.com/news/climate-summit",
+                    "url": "https://www.bbc.com/news",
                     "publishedAt": "2024-01-15T10:30:00Z",
-                    "urlToImage": "https://bbc.com/images/climate.jpg"
+                    "urlToImage": "https://www.bbc.com/images/climate.jpg"
                 },
                 {
                     "source": "BBC News",
                     "title": "Stock Market Reaches All-Time High",
                     "description": "Major stock indices hit record levels as investor confidence continues to grow.",
                     "content": "The global stock market has reached an all-time high today, with the S&P 500, Nasdaq, and other major indices showing strong performance. Investors remain optimistic about economic recovery and corporate earnings growth. Analysts attribute the surge to positive economic data and improved business sentiment across multiple sectors.",
-                    "url": "https://bbc.com/news/stock-market",
+                    "url": "https://www.bbc.com/news",
                     "publishedAt": "2024-01-14T14:15:00Z",
-                    "urlToImage": "https://bbc.com/images/stock.jpg"
+                    "urlToImage": "https://www.bbc.com/images/stock.jpg"
                 },
             ],
             "technology": [
@@ -62,7 +70,7 @@ class NewsFetcher:
                     "title": "New AI Breakthrough: Advanced Language Model Released",
                     "description": "Tech companies announce latest advances in artificial intelligence and machine learning.",
                     "content": "Leading technology companies have announced breakthrough developments in artificial intelligence. A new language model with improved reasoning capabilities has been released to researchers and developers. The model shows significant improvements in understanding context, nuance, and complex queries. This advancement is expected to accelerate innovation in various AI applications including virtual assistants, content generation, and automated analysis.",
-                    "url": "https://techcrunch.com/ai-breakthrough",
+                    "url": "https://techcrunch.com",
                     "publishedAt": "2024-01-15T08:45:00Z",
                     "urlToImage": "https://techcrunch.com/images/ai.jpg"
                 },
@@ -71,7 +79,7 @@ class NewsFetcher:
                     "title": "Quantum Computing Makes Progress",
                     "description": "Researchers announce significant progress in developing practical quantum computers.",
                     "content": "Quantum computing researchers have announced significant progress toward building practical quantum computers. New error correction techniques allow quantum systems to maintain their computational advantage for longer periods. Tech companies like IBM and Google are investing heavily in quantum research, with the expectation that practical quantum computers could solve certain problems exponentially faster than classical computers.",
-                    "url": "https://techcrunch.com/quantum",
+                    "url": "https://techcrunch.com",
                     "publishedAt": "2024-01-14T11:20:00Z",
                     "urlToImage": "https://techcrunch.com/images/quantum.jpg"
                 },
@@ -82,7 +90,7 @@ class NewsFetcher:
                     "title": "Championship Team Advances to Finals",
                     "description": "In an exciting match, the championship team defeats rivals to advance to the finals.",
                     "content": "In a thrilling match that went into overtime, the championship team defeated their rivals 3-2 to advance to the finals. The star player scored the winning goal with just two minutes remaining in overtime. Fans celebrated as the team secured their place in the championship finals scheduled for next month. The team will face the other semifinal winner in the championship match.",
-                    "url": "https://espn.com/sports/championship",
+                    "url": "https://www.espn.com",
                     "publishedAt": "2024-01-15T19:30:00Z",
                     "urlToImage": "https://espn.com/images/championship.jpg"
                 },
@@ -91,7 +99,7 @@ class NewsFetcher:
                     "title": "Star Athlete Breaks Long-Standing Record",
                     "description": "A legendary athlete shatters a record that has stood for over two decades.",
                     "content": "In a historic moment for sports, a legendary athlete has broken a record that has stood for over twenty years. The record, previously held by another sports icon, was broken during an international competition. Fans around the world celebrated this achievement on social media. The athlete expressed gratitude to their team and coaches for the opportunity to make history.",
-                    "url": "https://espn.com/sports/record",
+                    "url": "https://www.espn.com",
                     "publishedAt": "2024-01-14T16:45:00Z",
                     "urlToImage": "https://espn.com/images/record.jpg"
                 },
@@ -102,7 +110,7 @@ class NewsFetcher:
                     "title": "New Blockbuster Film Breaks Box Office Records",
                     "description": "A highly anticipated film has shattered box office records on its opening weekend.",
                     "content": "A long-awaited blockbuster film has shattered box office records, earning over $500 million in its opening weekend globally. The film, based on a popular book series, features an all-star cast and cutting-edge special effects. Critics have praised the film for its engaging storyline and stunning visuals. The studio has announced plans for sequels given the overwhelming commercial success.",
-                    "url": "https://variety.com/entertainment/blockbuster",
+                    "url": "https://variety.com",
                     "publishedAt": "2024-01-15T20:00:00Z",
                     "urlToImage": "https://variety.com/images/blockbuster.jpg"
                 },
@@ -111,13 +119,19 @@ class NewsFetcher:
                     "title": "Award-Winning Series Announces Final Season",
                     "description": "A popular television series announces that the upcoming season will be its final one.",
                     "content": "A critically acclaimed television series has announced that the upcoming season will be its final one. The announcement has sparked emotional reactions from fans who have followed the show since its debut. The final season will consist of ten episodes and air over the next three months. The showrunner has promised a satisfying conclusion to the complex and beloved series.",
-                    "url": "https://variety.com/entertainment/series",
+                    "url": "https://variety.com",
                     "publishedAt": "2024-01-14T18:10:00Z",
                     "urlToImage": "https://variety.com/images/series.jpg"
                 },
             ]
         }
     
+    def _normalize_article_url(self, url, source):
+        """Ensure each article URL is absolute and fall back to the source homepage if needed."""
+        if isinstance(url, str) and url.startswith("http"):
+            return url
+        return self.source_homepages.get(source, "https://www.example.com")
+
     def fetch_news(self, category="general"):
         """
         Fetch news articles for a specific category.
@@ -132,7 +146,11 @@ class NewsFetcher:
         
         # Return mock articles for the requested category
         if category in self.mock_articles:
-            articles = self.mock_articles[category]
+            articles = []
+            for article in self.mock_articles[category]:
+                normalized = article.copy()
+                normalized['url'] = self._normalize_article_url(article.get('url', ''), article.get('source', ''))
+                articles.append(normalized)
             print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Successfully fetched {len(articles)} articles from {category}")
             return articles
         else:

@@ -1,0 +1,6 @@
+#!/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/.venv/bin/python
+import sys
+from dotenv.__main__ import cli
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(cli())

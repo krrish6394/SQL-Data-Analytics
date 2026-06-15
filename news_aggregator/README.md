@@ -325,3 +325,69 @@ After working through this package, you will understand:
 
 This package transforms buggy, non-functional code into clean, working implementations 
 that teach fundamental NLP concepts. Every bug fixed is a learning opportunity.
+
+## 🐳 Docker
+
+A Dockerfile and docker-compose configuration are included to run the News Aggregator
+in a reproducible environment (recommended for compiled dependencies).
+
+Build the image:
+```bash
+cd news_aggregator
+docker build -t news-aggregator:latest .
+```
+
+Run with Docker:
+```bash
+docker run -d --name news-aggregator -e NEWS_AGG_PORT=5001 -p 5001:5001 news-aggregator:latest
+```
+
+Or use docker-compose:
+```bash
+cd news_aggregator
+docker-compose up --build -d
+```
+
+View logs:
+```bash
+docker logs -f news-aggregator
+```
+
+Stop and remove:
+```bash
+docker-compose down
+docker rm -f news-aggregator || true
+docker rmi news-aggregator:latest || true
+```
+
+Matrix builds (CI and local)
+------------------------------------------------
+The CI workflow runs the Docker build and tests across multiple Python base images by passing a build-arg `BASE_IMAGE` into the Docker build. To reproduce locally for a specific Python base image, pass the same build-arg:
+
+```bash
+# Example: test with Python 3.11 slim locally
+cd news_aggregator
+docker build --build-arg BASE_IMAGE=python:3.11-slim -t news-aggregator:py311 .
+docker run --rm -e NEWS_AGG_PORT=5001 news-aggregator:py311 /bin/bash -c "./tests/run_in_container_tests.sh"
+```
+
+The GitHub Actions workflow `.github/workflows/docker-integration.yml` runs the same build/test sequence across a small matrix of base images (e.g. `python:3.10-slim`, `python:3.11-slim`, `python:3.12-slim`).
+
+Running integration tests inside the container
+------------------------------------------------
+After building the image you can run the minimal integration test bundled in the image.
+This script starts the app in the container, waits for readiness, and exercises the main endpoints.
+
+Build image:
+```bash
+cd news_aggregator
+docker build -t news-aggregator:latest .
+```
+
+Run the integration test (the test uses port 5001 by default):
+```bash
+docker run --rm news-aggregator:latest /bin/bash -c "NEWS_AGG_PORT=5001 ./tests/run_in_container_tests.sh"
+```
+
+The script will print health/categories/summarize responses and exit with non-zero if any check fails.
+

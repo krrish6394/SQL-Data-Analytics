@@ -286,9 +286,12 @@
         
         // Display statistics
         function displayStatistics(stats, processingTime) {
-            document.getElementById('totalArticles').textContent = stats.total_articles;
-            document.getElementById('totalSources').textContent = stats.num_sources;
-            document.getElementById('avgLength').textContent = Math.round(stats.avg_content_length);
+            const avgLength = stats.avg_content_length ?? stats.average_length_chars ?? 0;
+            const totalSources = stats.num_sources ?? 0;
+
+            document.getElementById('totalArticles').textContent = stats.total_articles ?? 0;
+            document.getElementById('totalSources').textContent = totalSources;
+            document.getElementById('avgLength').textContent = Math.round(avgLength);
             document.getElementById('processingTime').textContent = processingTime + 's';
             document.getElementById('statsSection').style.display = 'block';
         }

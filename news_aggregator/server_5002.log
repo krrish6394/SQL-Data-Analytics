@@ -1,0 +1,238 @@
+
+[2026-06-14 21:14:30] Initializing News Aggregator Application...
+[2026-06-14 21:14:30] Text Summarizer initialized
+[2026-06-14 21:14:30] NLPEngine initialized
+[2026-06-14 21:14:30] Text Summarizer initialized
+
+[2026-06-14 21:14:30] ========================================
+[2026-06-14 21:14:30] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:14:30] ========================================
+[2026-06-14 21:14:30] Starting Flask development server...
+[2026-06-14 21:14:30] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:14:30] Press CTRL+C to stop the server
+[2026-06-14 21:14:30] ========================================
+
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5002
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/nlp_engine.py', reloading
+
+[2026-06-14 21:14:30] Initializing News Aggregator Application...
+[2026-06-14 21:14:30] Text Summarizer initialized
+[2026-06-14 21:14:30] NLPEngine initialized
+[2026-06-14 21:14:30] Text Summarizer initialized
+
+[2026-06-14 21:14:30] ========================================
+[2026-06-14 21:14:30] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:14:30] ========================================
+[2026-06-14 21:14:30] Starting Flask development server...
+[2026-06-14 21:14:30] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:14:30] Press CTRL+C to stop the server
+[2026-06-14 21:14:30] ========================================
+
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/nlp_engine.py', reloading
+
+[2026-06-14 21:19:15] Initializing News Aggregator Application...
+[2026-06-14 21:19:15] Text Summarizer initialized
+[2026-06-14 21:19:15] NLPEngine initialized
+[2026-06-14 21:19:15] Text Summarizer initialized
+
+[2026-06-14 21:19:15] ========================================
+[2026-06-14 21:19:15] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:19:15] ========================================
+[2026-06-14 21:19:15] Starting Flask development server...
+[2026-06-14 21:19:15] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:19:15] Press CTRL+C to stop the server
+[2026-06-14 21:19:15] ========================================
+
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/news_fetcher.py', reloading
+
+[2026-06-14 21:19:24] Initializing News Aggregator Application...
+[2026-06-14 21:19:24] Text Summarizer initialized
+[2026-06-14 21:19:24] NLPEngine initialized
+[2026-06-14 21:19:24] Text Summarizer initialized
+
+[2026-06-14 21:19:24] ========================================
+[2026-06-14 21:19:24] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:19:24] ========================================
+[2026-06-14 21:19:24] Starting Flask development server...
+[2026-06-14 21:19:24] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:19:24] Press CTRL+C to stop the server
+[2026-06-14 21:19:24] ========================================
+
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/news_fetcher.py', reloading
+
+[2026-06-14 21:22:17] Initializing News Aggregator Application...
+[2026-06-14 21:22:17] Text Summarizer initialized
+[2026-06-14 21:22:17] NLPEngine initialized
+[2026-06-14 21:22:17] Text Summarizer initialized
+
+[2026-06-14 21:22:17] ========================================
+[2026-06-14 21:22:17] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:22:17] ========================================
+[2026-06-14 21:22:17] Starting Flask development server...
+[2026-06-14 21:22:17] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:22:17] Press CTRL+C to stop the server
+[2026-06-14 21:22:17] ========================================
+
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/news_fetcher.py', reloading
+
+[2026-06-14 21:22:18] Initializing News Aggregator Application...
+[2026-06-14 21:22:18] Text Summarizer initialized
+[2026-06-14 21:22:18] NLPEngine initialized
+[2026-06-14 21:22:18] Text Summarizer initialized
+
+[2026-06-14 21:22:18] ========================================
+[2026-06-14 21:22:18] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:22:18] ========================================
+[2026-06-14 21:22:18] Starting Flask development server...
+[2026-06-14 21:22:18] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:22:18] Press CTRL+C to stop the server
+[2026-06-14 21:22:18] ========================================
+
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/news_fetcher.py', reloading
+
+[2026-06-14 21:22:34] Initializing News Aggregator Application...
+[2026-06-14 21:22:34] Text Summarizer initialized
+[2026-06-14 21:22:34] NLPEngine initialized
+[2026-06-14 21:22:34] Text Summarizer initialized
+
+[2026-06-14 21:22:34] ========================================
+[2026-06-14 21:22:34] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:22:34] ========================================
+[2026-06-14 21:22:34] Starting Flask development server...
+[2026-06-14 21:22:34] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:22:34] Press CTRL+C to stop the server
+[2026-06-14 21:22:34] ========================================
+
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/news_fetcher.py', reloading
+
+[2026-06-14 21:22:35] Initializing News Aggregator Application...
+[2026-06-14 21:22:35] Text Summarizer initialized
+[2026-06-14 21:22:35] NLPEngine initialized
+[2026-06-14 21:22:35] Text Summarizer initialized
+
+[2026-06-14 21:22:35] ========================================
+[2026-06-14 21:22:35] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:22:35] ========================================
+[2026-06-14 21:22:35] Starting Flask development server...
+[2026-06-14 21:22:35] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:22:35] Press CTRL+C to stop the server
+[2026-06-14 21:22:35] ========================================
+
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/news_fetcher.py', reloading
+
+[2026-06-14 21:22:43] Initializing News Aggregator Application...
+[2026-06-14 21:22:43] Text Summarizer initialized
+[2026-06-14 21:22:43] NLPEngine initialized
+[2026-06-14 21:22:43] Text Summarizer initialized
+
+[2026-06-14 21:22:43] ========================================
+[2026-06-14 21:22:43] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:22:43] ========================================
+[2026-06-14 21:22:43] Starting Flask development server...
+[2026-06-14 21:22:43] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:22:43] Press CTRL+C to stop the server
+[2026-06-14 21:22:43] ========================================
+
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/news_fetcher.py', reloading
+
+[2026-06-14 21:22:45] Initializing News Aggregator Application...
+[2026-06-14 21:22:45] Text Summarizer initialized
+[2026-06-14 21:22:45] NLPEngine initialized
+[2026-06-14 21:22:45] Text Summarizer initialized
+
+[2026-06-14 21:22:45] ========================================
+[2026-06-14 21:22:45] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:22:45] ========================================
+[2026-06-14 21:22:45] Starting Flask development server...
+[2026-06-14 21:22:45] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:22:45] Press CTRL+C to stop the server
+[2026-06-14 21:22:45] ========================================
+
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/news_fetcher.py', reloading
+
+[2026-06-14 21:22:48] Initializing News Aggregator Application...
+[2026-06-14 21:22:48] Text Summarizer initialized
+[2026-06-14 21:22:48] NLPEngine initialized
+[2026-06-14 21:22:48] Text Summarizer initialized
+
+[2026-06-14 21:22:48] ========================================
+[2026-06-14 21:22:48] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:22:48] ========================================
+[2026-06-14 21:22:48] Starting Flask development server...
+[2026-06-14 21:22:48] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:22:48] Press CTRL+C to stop the server
+[2026-06-14 21:22:48] ========================================
+
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/news_fetcher.py', reloading
+
+[2026-06-14 21:22:50] Initializing News Aggregator Application...
+[2026-06-14 21:22:50] Text Summarizer initialized
+[2026-06-14 21:22:50] NLPEngine initialized
+[2026-06-14 21:22:50] Text Summarizer initialized
+
+[2026-06-14 21:22:50] ========================================
+[2026-06-14 21:22:50] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:22:50] ========================================
+[2026-06-14 21:22:50] Starting Flask development server...
+[2026-06-14 21:22:50] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:22:50] Press CTRL+C to stop the server
+[2026-06-14 21:22:50] ========================================
+
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/news_fetcher.py', reloading
+
+[2026-06-14 21:22:53] Initializing News Aggregator Application...
+[2026-06-14 21:22:53] Text Summarizer initialized
+[2026-06-14 21:22:53] NLPEngine initialized
+[2026-06-14 21:22:53] Text Summarizer initialized
+
+[2026-06-14 21:22:53] ========================================
+[2026-06-14 21:22:53] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:22:53] ========================================
+[2026-06-14 21:22:53] Starting Flask development server...
+[2026-06-14 21:22:53] Visit http://127.0.0.1:5002 in your browser
+[2026-06-14 21:22:53] Press CTRL+C to stop the server
+[2026-06-14 21:22:53] ========================================
+
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757

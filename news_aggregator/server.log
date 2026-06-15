@@ -1,0 +1,50 @@
+
+[2026-06-14 18:32:49] Initializing News Aggregator Application...
+[2026-06-14 18:32:49] Text Summarizer initialized
+[2026-06-14 18:32:49] NLPEngine initialized
+[2026-06-14 18:32:49] Text Summarizer initialized
+
+[2026-06-14 18:32:49] ========================================
+[2026-06-14 18:32:49] NEWS AGGREGATOR APPLICATION
+[2026-06-14 18:32:49] ========================================
+[2026-06-14 18:32:49] Starting Flask development server...
+[2026-06-14 18:32:49] Visit http://127.0.0.1:5001 in your browser
+[2026-06-14 18:32:49] Press CTRL+C to stop the server
+[2026-06-14 18:32:49] ========================================
+
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 328-108-508
+127.0.0.1 - - [14/Jun/2026 18:33:14] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2026 18:33:14] "GET /api/categories HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2026 18:33:14] "POST /api/summarize HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2026 18:33:23] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2026 18:33:29] "GET /api/categories HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2026 18:33:35] "POST /api/summarize HTTP/1.1" 200 -
+ * Detected change in '/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/app.py', reloading
+
+[2026-06-14 18:32:49] Initializing News Aggregator Application...
+[2026-06-14 18:32:49] Text Summarizer initialized
+[2026-06-14 18:32:49] NLPEngine initialized
+[2026-06-14 18:32:49] Text Summarizer initialized
+
+[2026-06-14 18:32:49] ========================================
+[2026-06-14 18:32:49] NEWS AGGREGATOR APPLICATION
+[2026-06-14 18:32:49] ========================================
+[2026-06-14 18:32:49] Starting Flask development server...
+[2026-06-14 18:32:49] Visit http://127.0.0.1:5001 in your browser
+[2026-06-14 18:32:49] Press CTRL+C to stop the server
+[2026-06-14 18:32:49] ========================================
+
+[2026-06-14 18:33:14] Summarizing article...
+[2026-06-14 18:33:14] Summarization complete
+[2026-06-14 18:33:35] Summarizing article...
+[2026-06-14 18:33:35] Summarization complete
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 328-108-508

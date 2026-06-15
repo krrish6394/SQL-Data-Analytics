@@ -1,0 +1,48 @@
+
+[2026-06-14 21:15:00] Initializing News Aggregator Application...
+[2026-06-14 21:15:00] Text Summarizer initialized
+[2026-06-14 21:15:00] NLPEngine initialized
+[2026-06-14 21:15:00] Text Summarizer initialized
+
+[2026-06-14 21:15:00] ========================================
+[2026-06-14 21:15:00] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:15:00] ========================================
+[2026-06-14 21:15:00] Starting Flask development server...
+[2026-06-14 21:15:00] Visit http://127.0.0.1:5003 in your browser
+[2026-06-14 21:15:00] Press CTRL+C to stop the server
+[2026-06-14 21:15:00] ========================================
+
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5003
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 600-639-757
+
+[2026-06-14 21:15:00] Initializing News Aggregator Application...
+[2026-06-14 21:15:00] Text Summarizer initialized
+[2026-06-14 21:15:00] NLPEngine initialized
+[2026-06-14 21:15:00] Text Summarizer initialized
+
+[2026-06-14 21:15:00] ========================================
+[2026-06-14 21:15:00] NEWS AGGREGATOR APPLICATION
+[2026-06-14 21:15:00] ========================================
+[2026-06-14 21:15:00] Starting Flask development server...
+[2026-06-14 21:15:00] Visit http://127.0.0.1:5003 in your browser
+[2026-06-14 21:15:00] Press CTRL+C to stop the server
+[2026-06-14 21:15:00] ========================================
+
+Traceback (most recent call last):
+  File "/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/app.py", line 411, in <module>
+    app.run(debug=True, host=host, port=port)
+  File "/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/.venv/lib/python3.10/site-packages/flask/app.py", line 889, in run
+    run_simple(t.cast(str, host), port, self, **options)
+  File "/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/.venv/lib/python3.10/site-packages/werkzeug/serving.py", line 1116, in run_simple
+    run_with_reloader(
+  File "/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/.venv/lib/python3.10/site-packages/werkzeug/_reloader.py", line 453, in run_with_reloader
+    ensure_echo_on()
+  File "/Users/kittusmac/Git_hub_repos/SQL-Data-Analytics/news_aggregator/.venv/lib/python3.10/site-packages/werkzeug/_reloader.py", line 433, in ensure_echo_on
+    termios.tcsetattr(sys.stdin, termios.TCSANOW, attributes)
+termios.error: (5, 'Input/output error')
